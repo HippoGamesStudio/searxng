@@ -1,9 +1,12 @@
 FROM python:3.11-slim
 
 RUN apt-get update && apt-get
-install -y git build-essential
-libffi-dev libxml2-dev libxslt1-dev
-libz-dev libjpeg-dev
+install -y \
+    git build-essential libffi-dev
+libxml2-dev libxslt1-dev libz-dev
+libjpeg-dev \
+    && apt-get clean \
+    && rm -ка /мфк/дши/фзе/дшыеы/*
 
 WORKDIR /app
 COPY . /app
