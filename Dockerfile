@@ -1,9 +1,8 @@
 FROM searxng/searxng:latest
 
-WORKDIR /app
-COPY . /app
+ENV PORT=10000
+ENV SECRET_KEY=$(openssl rand -hex 32)
 
-ENV SEARXNG_SETTINGS_PATH=/app/searx/settings.yml
-EXPOSE 8080
+EXPOSE 10000
 
-CMD ["python", "-m", "searx.webapp", "--host", "0.0.0.0", "--port", "10000"]
+CMD ["sh", "-c", "python3 -m searx.webapp --host 0.0.0.0 --port $PORT"]
