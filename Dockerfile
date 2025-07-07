@@ -1,6 +1,7 @@
 FROM searxng/searxng:latest
 
 WORKDIR /app
+COPY . /app
 
 ENV SEARXNG_SETTINGS_PATH=/app/searx/settings.yml
 EXPOSE 8080
