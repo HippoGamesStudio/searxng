@@ -1,12 +1,6 @@
-FROM python:3.11-slim
-
-RUN apt-get update && apt-get install -y \ git build-essential libffi-dev libxml2-dev libxslt1-dev libz-dev libjpeg-dev \ && apt-get clean \ && rm -rf /var/lib/apt/lists/*
+FROM searxng/searxng:latest
 
 WORKDIR /app
-COPY . /app
-
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
 
 ENV SEARXNG_SETTINGS_PATH=searx/settings.yml
 EXPOSE 8080
